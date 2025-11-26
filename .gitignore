@@ -1,22 +1,255 @@
-### AL ###
-#Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
+## Arquivos de Build
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Arquivos de Visual Studio
+.vs/
+*.user
+*.userosscache
+*.suo
+*.user
+*.sln.docstates
 .vscode/
-#Cache folder
-.alcache/
-#Symbols folder
-.alpackages/
-#Snapshots folder
-.snapshots/
-#Testing Output folder
-.output/
-#Extension App-file
-*.app
-#Rapid Application Development File
-rad.json
-#Translation Base-file
-*.g.xlf
-#License-file
-*.flf
-#Test results file
-TestResults.xml
+
+## Arquivos de Rider
+.idea/
+*.sln.iml
+
+## Arquivos de Visual Studio Code
+.vscode/
+*.code-workspace
+
+## Arquivos de usuário
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Arquivos de build do Visual Studio
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Arquivos de teste
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+*.coverage
+*.coveragexml
+
+## Arquivos de NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Arquivos de Entity Framework
+*.edmx.diagram
+*.edmx.sql
+
+## Arquivos de migração (opcional - descomente se não quiser versionar migrations)
+# Migrations/
+
+## Arquivos de configuração local
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+!appsettings.json
+!appsettings.Production.json
+
+## Arquivos de certificados e chaves
+*.pfx
+*.key
+*.p12
+*.pem
+*.crt
+*.cer
+
+## Arquivos de log
+*.log
+logs/
+*.log.*
+
+## Arquivos temporários
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+*#
+.#*
+
+## Arquivos do sistema operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+## Arquivos de banco de dados local
+*.db
+*.sqlite
+*.sqlite3
+*.mdf
+*.ldf
+
+## Arquivos de backup
+*.bak
+*.backup
+*.old
+
+## Arquivos de análise de código
+.vs/
+*.vsidx
+*.vspscc
+*.vsp
+
+## Arquivos de publicação
+publish/
+*.pubxml
+*.publishproj
+
+## Arquivos de Azure
+*.azurePubxml
+*.pubxml
+*.publishproj
+
+## Arquivos de Docker
+.dockerignore
+docker-compose.override.yml
+
+## Arquivos de Node.js (se houver frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+## Arquivos de Python (se houver scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+## Arquivos de JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+## Arquivos de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+## Arquivos do Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+## Arquivos de análise estática
+.vs/
+*.vsidx
+*.vspscc
+*.vsp
+
+## Arquivos de cobertura de código
+coverage/
+*.coverage
+*.coveragexml
+*.opencover
+
+## Arquivos de profiling
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+## Arquivos de ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## Arquivos de StyleCop
+StyleCopReport.xml
+
+## Arquivos de arquivos de projeto
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+## Arquivos de Visual Studio cache
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+## Arquivos de Azure Functions
+local.settings.json
+
+## Arquivos de secrets
+secrets.json
+*.secrets.json
+

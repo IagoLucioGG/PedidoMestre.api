@@ -1,0 +1,6 @@
+@PedidoMestre.api_HostAddress = http://localhost:5127
+
+GET {{PedidoMestre.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
