@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PedidoMestre.Models.Common;
+using PedidoMestre.Models.DTOs.Common;
+using PedidoMestre.Models.DTOs.Produtos;
 using PedidoMestre.Models.Produtos;
 using PedidoMestre.Services.Interfaces;
 
@@ -12,7 +13,7 @@ namespace PedidoMestre.Api.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
-    [Tags("9. Produto-Variações")]
+    [Tags("10. Produto-Variações")]
     public class ProdutoVariacoesController : ControllerBase
     {
         private readonly IProdutoVariacaoService _produtoVariacaoService;

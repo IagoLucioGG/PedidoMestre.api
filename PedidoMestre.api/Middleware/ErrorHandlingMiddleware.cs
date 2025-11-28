@@ -1,6 +1,6 @@
 using System.Net;
 using System.Text.Json;
-using PedidoMestre.Models.Common;
+using PedidoMestre.Models.DTOs.Common;
 
 namespace PedidoMestre.Api.Middleware
 {

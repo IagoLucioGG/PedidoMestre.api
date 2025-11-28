@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PedidoMestre.Models.Common;
+using PedidoMestre.Models.DTOs.Common;
 using PedidoMestre.Models.Geral;
 using PedidoMestre.Services.Interfaces;
 
@@ -12,7 +12,7 @@ namespace PedidoMestre.Api.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
-    [Tags("4. Clientes")]
+    [Tags("5. Clientes")]
     public class BairrosController : ControllerBase
     {
         private readonly IBairroService _bairroService;

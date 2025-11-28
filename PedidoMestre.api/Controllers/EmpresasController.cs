@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PedidoMestre.Models.Common;
+using PedidoMestre.Models.DTOs.Common;
+using PedidoMestre.Models.DTOs.Empresas;
 using PedidoMestre.Models.Empresas;
 using PedidoMestre.Services.Interfaces;
 
@@ -49,6 +50,22 @@ namespace PedidoMestre.Api.Controllers
         }
 
         /// <summary>
+        /// Obtém detalhes completos do perfil da empresa
+        /// </summary>
+        /// <param name="id">ID da empresa</param>
+        /// <returns>Detalhes completos da empresa</returns>
+        [HttpGet("{id}/detalhes")]
+        [ProducesResponseType(typeof(ResponseModel<EmpresaDetalhesResponseDto>), 200)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult<ResponseModel<EmpresaDetalhesResponseDto>>> ObterDetalhes(int id)
+        {
+            var resultado = await _empresaService.ObterDetalhesAsync(id);
+            if (!resultado.Status)
+                return NotFound(resultado);
+            return Ok(resultado);
+        }
+
+        /// <summary>
         /// Cria uma nova empresa
         /// </summary>
         /// <param name="empresaDto">Dados básicos da empresa</param>
@@ -75,6 +92,24 @@ namespace PedidoMestre.Api.Controllers
         public async Task<ActionResult<ResponseModel<Empresa>>> Atualizar(int id, [FromBody] Empresa empresa)
         {
             var resultado = await _empresaService.AtualizarAsync(id, empresa);
+            return Ok(resultado);
+        }
+
+        /// <summary>
+        /// Atualiza o perfil completo da empresa (foto, descrição, redes sociais, etc)
+        /// </summary>
+        /// <param name="id">ID da empresa</param>
+        /// <param name="empresaDto">Dados do perfil da empresa</param>
+        /// <returns>Empresa atualizada</returns>
+        [HttpPut("{id}/perfil")]
+        [ProducesResponseType(typeof(ResponseModel<Empresa>), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<ResponseModel<Empresa>>> AtualizarPerfil(int id, [FromBody] EmpresaUpdateDto empresaDto)
+        {
+            var resultado = await _empresaService.AtualizarPerfilAsync(id, empresaDto);
+            if (!resultado.Status)
+                return BadRequest(resultado);
             return Ok(resultado);
         }
 

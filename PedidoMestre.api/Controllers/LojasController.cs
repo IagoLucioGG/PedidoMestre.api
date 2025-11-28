@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PedidoMestre.Models.Common;
+using PedidoMestre.Models.DTOs.Common;
+using PedidoMestre.Models.DTOs.Empresas;
 using PedidoMestre.Models.Empresas;
 using PedidoMestre.Services.Interfaces;
 
@@ -49,6 +50,22 @@ namespace PedidoMestre.Api.Controllers
         }
 
         /// <summary>
+        /// Obtém detalhes completos do perfil da loja (endereço completo, horários, etc)
+        /// </summary>
+        /// <param name="id">ID da loja</param>
+        /// <returns>Detalhes completos da loja</returns>
+        [HttpGet("{id}/detalhes")]
+        [ProducesResponseType(typeof(ResponseModel<LojaDetalhesResponseDto>), 200)]
+        [ProducesResponseType(404)]
+        public async Task<ActionResult<ResponseModel<LojaDetalhesResponseDto>>> ObterDetalhes(int id)
+        {
+            var resultado = await _lojaService.ObterDetalhesAsync(id);
+            if (!resultado.Status)
+                return NotFound(resultado);
+            return Ok(resultado);
+        }
+
+        /// <summary>
         /// Lista todas as lojas de uma empresa
         /// </summary>
         /// <param name="idEmpresa">ID da empresa</param>
@@ -88,6 +105,24 @@ namespace PedidoMestre.Api.Controllers
         public async Task<ActionResult<ResponseModel<Loja>>> Atualizar(int id, [FromBody] Loja loja)
         {
             var resultado = await _lojaService.AtualizarAsync(id, loja);
+            return Ok(resultado);
+        }
+
+        /// <summary>
+        /// Atualiza o perfil completo da loja (endereço completo, horários por dia, pedido mínimo, etc)
+        /// </summary>
+        /// <param name="id">ID da loja</param>
+        /// <param name="lojaDto">Dados do perfil da loja</param>
+        /// <returns>Loja atualizada</returns>
+        [HttpPut("{id}/perfil")]
+        [ProducesResponseType(typeof(ResponseModel<Loja>), 200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<ResponseModel<Loja>>> AtualizarPerfil(int id, [FromBody] LojaUpdateDto lojaDto)
+        {
+            var resultado = await _lojaService.AtualizarPerfilAsync(id, lojaDto);
+            if (!resultado.Status)
+                return BadRequest(resultado);
             return Ok(resultado);
         }
 

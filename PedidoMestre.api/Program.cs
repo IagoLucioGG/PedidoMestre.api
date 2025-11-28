@@ -29,6 +29,22 @@ builder.Services.AddScoped<ILojaService, LojaService>();
 builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<IAuthService, PedidoMestre.Services.Implementation.Clientes.AuthService>();
 
+// Configuração dos Services - Pedidos
+builder.Services.AddScoped<IPedidoService, PedidoMestre.Services.Implementation.Pedidos.PedidoService>();
+builder.Services.AddScoped<IKdsService, PedidoMestre.Services.Implementation.Pedidos.KdsService>();
+
+// Configuração dos Services - Empresas
+builder.Services.AddScoped<IFormaPagamentoService, PedidoMestre.Services.Implementation.Empresas.FormaPagamentoService>();
+
+// Configuração dos Services - Estoque
+builder.Services.AddScoped<IEstoqueService, PedidoMestre.Services.Implementation.Estoque.EstoqueService>();
+
+// Configuração dos Services - Caixa
+builder.Services.AddScoped<ICaixaService, PedidoMestre.Services.Implementation.Caixa.CaixaService>();
+
+// Configuração dos Services - Desempenho
+builder.Services.AddScoped<IDesempenhoService, PedidoMestre.Services.Implementation.Desempenho.DesempenhoService>();
+
 // Configuração dos Services - Geral
 builder.Services.AddScoped<ITaxaEntregaService, TaxaEntregaService>();
 
